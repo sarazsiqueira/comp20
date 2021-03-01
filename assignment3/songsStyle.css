@@ -30,6 +30,7 @@ song artist
 song artist:before 
 {
 	content: "by ";
+	font-size: 17px;
 }
 
 song genre 
@@ -42,6 +43,7 @@ song genre
 song genre:before 
 {
 	content: "Genre:";
+	font-size: 17px;
 }
 
 song year 
@@ -55,6 +57,7 @@ song year
 song year:before 
 {
 	content: "Year Released:";
+	font-size: 17px;
 }
 
 
