@@ -1,0 +1,60 @@
+
+song_list {
+	background-color: #ffffff;
+	width: 100%;
+
+}
+
+
+
+song 
+{
+	display: block; 
+	padding: 10px 40px 20px;
+}
+
+song name 
+{
+	font-size: 20px; 
+	font-weight: 700; 
+	color: #8F0000;
+}
+
+song artist 
+{
+	font-size: 17px; 
+	font-weight: 200; 
+	color: #8F0000;
+}
+
+song artist:before 
+{
+	content: "by ";
+}
+
+song genre 
+{
+	display: block; 
+	padding: 0px 15px;
+}
+
+
+song genre:before 
+{
+	content: "Genre:";
+}
+
+song year 
+{
+	display: block; 
+	padding: 0px 15px;
+}
+
+
+
+song year:before 
+{
+	content: "Year Released:";
+}
+
+

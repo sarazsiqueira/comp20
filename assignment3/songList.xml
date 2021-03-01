@@ -1,0 +1,131 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<?xml-stylesheet type = "text/css" href = "songsStyle.css"?> 
+
+<song_list> 
+	<song>
+		<name> Layla </name>
+
+		<artist> Eric Clapton </artist>
+		
+		<genre> Rock </genre>
+
+		<year> 1970 </year>
+
+	</song>
+
+
+	<song>
+		<name> Fast Car</name>
+
+		<artist> Tracy Chapman </artist>
+		
+		<genre> Singer-songwriter </genre>
+
+		<year> 1988 </year>
+
+	</song>
+
+
+
+	<song>
+		<name> You Don't Know </name>
+
+		<artist> Leon Bridges </artist>
+		
+		<genre> R&#38;B/Soul</genre>
+
+		<year> 2018 </year>
+
+	</song>
+
+
+	<song>
+		<name> Sedona </name>
+
+		<artist> Houndmouth </artist>
+		
+		<genre> Alternative </genre>
+
+		<year> 2015 </year>
+
+	</song>
+
+
+	<song>
+		<name> Talk It Up </name>
+
+		<artist> Sammy Rae &#38; the Friends</artist>
+		
+		<genre> Alternative </genre>
+
+		<year> 2018 </year>
+
+	</song>
+
+
+	<song>
+		<name> Harriet </name>
+
+		<artist> Hey Rosetta! </artist>
+		
+		<genre> Folk </genre>
+
+		<year> 2014 </year>
+
+	</song>
+
+
+	<song>
+		<name> Whoa</name>
+
+		<artist>Snoh Aalegra </artist>
+		
+		<genre> R&#38;B/Soul </genre>
+
+		<year> 2019 </year>
+
+	</song>
+
+
+
+	<song>
+		<name> You Make My Dreams (Come True) </name>
+
+		<artist> Daryl Hall &#38; John Oates</artist>
+		
+		<genre> Rock </genre>
+
+		<year> 1980 </year>
+
+	</song>
+
+
+
+	<song>
+		<name> Could You Be Loved </name>
+
+		<artist> Bob Marley &#38; The Wailers  </artist>
+		
+		<genre> Reggae </genre>
+
+		<year> 1980 </year>
+
+	</song>
+
+
+
+	<song>
+		<name> Better Than </name>
+
+		<artist> Lake Street Dive </artist>
+		
+		<genre> Pop </genre>
+
+		<year> 2014 </year>
+
+	</song>
+
+</song_list>
+
+
+
