@@ -15,7 +15,7 @@ input[type=text], select, textarea {
 input[type = button] {
   text-decoration:none; 
   color: #fff; 
-  background-color: var(--accent); 
+  background-color: #DA4F18; 
   font-size: 14px; 
   padding: 10px; 
   border-radius: 2px; 
@@ -24,13 +24,10 @@ input[type = button] {
   text-align: center;
 }
 
-  :root{
-    --accent: #DA4F18;
-  }
 
 
   h1 {
-    color: var(--accent);
+    color: #DA4F18;
     text-align: center;
     padding-top: 0px; 
     padding-bottom: 15px;
