@@ -1,0 +1,52 @@
+
+
+input[type=text], select, textarea {
+  width: 20%; 
+  padding: 12px;  
+  padding-left: 20px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+input[type = button] {
+  text-decoration:none; 
+  color: #fff; 
+  background-color: var(--accent); 
+  font-size: 14px; 
+  padding: 10px; 
+  border-radius: 2px; 
+  border: 1px solid #fff; 
+  width: 100px; 
+  text-align: center;
+}
+
+  :root{
+    --accent: #DA4F18;
+  }
+
+
+  h1 {
+    color: var(--accent);
+    text-align: center;
+    padding-top: 0px; 
+    padding-bottom: 15px;
+    font-size: 35px;
+    font-family: Times, serif;
+    font-weight: bold;
+
+  }
+
+  #amicable {
+    padding-top: 40px;
+    font-size: 20px;
+
+  }
+
+
+
+
+
