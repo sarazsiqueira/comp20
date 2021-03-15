@@ -47,11 +47,13 @@ function hideAddress(x) {
 function showAddress(x) {
 	if (x == 0) {
 		document.getElementById("street").style.visibility="hidden";
-        document.getElementById("city").style.visibility="hidden";
+        	document.getElementById("city").style.visibility="hidden";
 	}
 	if (x == 1) {
 		document.getElementById("street").style.visibility="visible";
-        document.getElementById("city").style.visibility="visible";
+        	document.getElementById("city").style.visibility="visible";
+		document.getElementById("street").required;
+		document.getElementById("city").required;
 	}
 
 }
