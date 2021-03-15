@@ -61,7 +61,32 @@ function showAddress(x) {
 
 // FUNCTION
 // make a function that based on the value of makeSelect, the returns the 
-// value of the total cost 
+// value of the total cost
+	
+	
+// VALIDATE FORM 
+function validateForm() {
+	//last name entered
+		// otherwise error alert 
+		// valid == false
+	
+	// phone number entered and valid phone number 
+		// otherwise alert that there is an error
+		//  valid == false
+		
+	
+	// if order is pick up --> time = 15 min 
+	// if order is delivery --> time = 30 min 
+		// if street or city blank --> valid == false
+	
+	// at least one item must be ordered
+		// otherwise valid == false;
+	
+	
+	
+	//if no validation issues (if boolean var valid == true)--> display message with order 
+	
+}
 </script>
 
 <h1>Jade Delight</h1>
@@ -133,7 +158,7 @@ function showAddress(x) {
 <p>Total: $ <input type="text"  name='total' id="total" />
 </p>
 
-<input type = "button" value = "Submit Order" />
+<input type = "button" value = "Submit Order" onclick = "validateForm()"/>
 
 </form>
 </body>
