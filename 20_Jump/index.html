@@ -1,0 +1,69 @@
+<!doctype html>
+<html> 
+<head>
+	<meta charset = "utf-8">
+
+	<title> Jump </title>
+</head>
+
+<style>
+	input[type = button] {
+		text-decoration:none; 
+  		color: #fff; 
+ 		background-color: #DA4F18; 
+ 		font-size: 14px; 
+ 		padding: 10px; 
+ 		border-radius: 2px; 
+ 		border: 1px solid #fff; 
+ 		width: 100px; 
+ 		text-align: center;
+	}
+</style>
+
+<body>
+	<form name = "myForm">
+		<input type = "text" id = "leftText">
+		<button type = "button" id = "left" onclick = "jumpLeft()"> < Jump </button>
+		<button type = "button" id = "right" onclick = "jumpRight()"> Jump > </button>
+
+		<input type = "text" id = "rightText">
+
+	</form>
+
+	<script language = "javascript">
+		window.onload = function load() {
+			document.getElementById("left").style.display="none";
+		};
+
+		function jumpLeft(){
+			// get text from right
+			var text = document.forms["myForm"]["rightText"].value;
+
+			// clear right hand text box
+			document.forms["myForm"]["rightText"].value = "";
+
+			// change which button is displayed
+			document.getElementById("left").style.display="none";
+			document.getElementById("right").style.display = "inline";
+
+			// put the text into the left text box
+			document.getElementById("leftText").value = text;
+		}
+
+		function jumpRight() {
+			// get the value from the left
+			var text = document.forms["myForm"]["leftText"].value;
+
+			// clear the left hand text box
+			document.forms["myForm"]["leftText"].value = "";
+
+			// change which button is displayed
+			document.getElementById("right").style.display="none";
+			document.getElementById("left").style.display = "inline";
+
+			// set the right text box to contain the text
+			document.getElementById("rightText").value = text;
+		}
+	</script>
+</body>
+</html>
