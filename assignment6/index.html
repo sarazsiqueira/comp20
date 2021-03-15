@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head> 
+	<meta charset = "utf-8">
+
+
+	<title> Amicable numbers</title>
+
+</head>
+
+<style> 
+
+input[type=text], select, textarea {
+  width: 20%; 
+  padding: 12px;  
+  padding-left: 20px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+input[type = button] {
+  text-decoration:none; 
+  color: #fff; 
+  background-color: #DA4F18; 
+  font-size: 14px; 
+  padding: 10px; 
+  border-radius: 2px; 
+  border: 1px solid #fff; 
+  width: 100px; 
+  text-align: center;
+}
+
+
+
+  h1 {
+    color: #DA4F18;
+    text-align: center;
+    padding-top: 0px; 
+    padding-bottom: 15px;
+    font-size: 35px;
+    font-family: Times, serif;
+    font-weight: bold;
+
+  }
+
+  #amicable {
+    padding-top: 40px;
+    font-size: 20px;
+
+  }
+
+
+</style>
+
+<body> 
+	<h1> Amicable number calculator </h1>
+
+
+	<form style = "padding-left: 20px"> 
+		<label style = "font-size: 20px;" >Enter two numbers to see if they are amicable:</label>
+		<br> 
+		<input type = "text" id = "number">
+		<input type = "text" id = "number_two">
+		<br>
+		
+		<input type = "button" value = "Submit!" onclick = "showFactors()" >
+	
+	<br>
+	<div id = "amicable"> </div>
+
+
+<script language = "javascript">
+
+
+	// interpret the form input and display the factors for diagnostics 
+	function showFactors() {
+	
+		// get the numbers from the form 
+		number = parseInt(document.getElementById("number").value);
+		number_two = parseInt(document.getElementById("number_two").value);
+
+		// find the array of factors for each number 
+		var factors_one = findFactors(number);
+		var factors_two = findFactors(number_two);
+
+		// create a pop up of the factors 
+		alert("Factors of " + number + ": " + factors_one + "\r\n"
+			+ "Factors of " + number_two + ": " + factors_two);
+
+		// display a message of whether or not the numbers are amicable
+		displayMessage(number, number_two, factors_one, factors_two);
+		return;
+	}
+
+
+
+	// find all the factors for each number 
+	function findFactors(number) {
+		var factors = [];
+		for (n = 0; n < number; n++) {
+			if (isAFactor(number, n) == true) {
+				factors.push(n);
+			}
+		}
+		return factors;
+	}
+
+	// determie if a value is a factor of another 
+	function isAFactor(x,y) {
+		if (x % y == 0) {
+			return true;
+		}
+		return false;
+	}
+
+
+	// Display a message to indicate whether the numbers are amicable or not
+	function displayMessage(number, number_two, factors_one, factors_two) {
+		if (isAmicable(number, number_two, factors_one, factors_two) == true) {
+			document.getElementById("amicable").innerHTML = "The numbers: " + number + " and " + number_two + 
+			" are amicable";
+		} else {
+			document.getElementById("amicable").innerHTML = "The numbers: " + number + " and " + number_two + 
+			" are not amicable";
+		}
+	}
+
+
+	// calculate the sums of factors to determine if the numbers are amicable
+	function isAmicable(number_one, number_two, factors_one, factors_two) {
+
+		var sum_one = 0;
+		var sum_two = 0;
+
+		// calculate the sum of factors for number 1
+		for (n = 0; n < factors_one.length; n++) {
+			sum_one += factors_one[n];
+		} 
+
+		// calculate the sum of factors for number 2 
+		for (n = 0; n < factors_two.length; n++) {
+			sum_two += factors_two[n];
+		} 
+
+		// compare the sums and both of the numbers
+		if (sum_one == number_two && sum_two == number_one){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+</script>
+
+
+</form>
+
+</body>
+
+</html>
+

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Contact us </title>
+
+
+	<link rel="stylesheet" href="style.css">
+	<meta charset=“UTF-8” name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<style type="text/css">
+
+		p {
+			text-align: center;
+			font-size: 24px;
+		}
+
+
+		.contact_img {
+			background-image: url('images/background.jpg');
+			height: 150px;
+			background-position:center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+
+		.contact_text {
+			text-align: center;
+			position: relative;
+			z-index: 3;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+
+		}
+
+	</style>
+
+
+</head>
+
+<body>
+
+<span class="header">
+	<div class="title"> Sara's Care Packages </div>
+	<ul class = "navigation">
+		<li><a class = "active" href= "contact.html"> Contact us</a> </li>
+		<li><a href= "packages.html"> Packages </a></li>
+		<li><a  href= "index.html"> Home </a> </li>
+
+	</ul>
+</span>
+
+
+
+<span class = "content">
+	<div class = "contact_img">
+		<div class = "contact_text">
+			<h1> Order now</h1>
+		</div>
+	</div>
+
+
+
+
+
+	<form action = '#'
+	method = 'post'>
+		</br>
+		<div><strong>Choose your Package(s) </strong></div>
+		</br>
+		<input type="checkbox" name="package" value="selfcare">Self-Care Box &nbsp;
+		<input type="checkbox" name="package" value="chocolate">Chocolate Heaven Box &nbsp;
+		<input type="checkbox" name="package" value="beauty">Beauty Box &nbsp;
+		<br />
+		<br />
+
+		<label> First name: </label> </br>
+		<input type = "text" name = 'name' id = 'first_name' required = '1' maxlength="30" style="width:50%; max-width:250px;"> </br>
+
+		<label> Last name: </label>
+		</br>
+		<input type = "text" name = 'name' id = 'last_name' required = '1' maxlength="30" style="width:50%; max-width:250px;"></br>
+
+		<label> Phone: </label>
+		</br>
+		<input type = "text" id = "phone" maxlength= "10" style="width:50%; max-width:250px;"></br>
+
+		<label>Email address: </label>
+		</br>
+		<input type = "text" id = 'email address' required = '1'style="width:50%; max-width:250px;"></br>
+
+
+        <div><strong>Delivery Address </strong></div>
+            <label for="street">Street:</label>
+            <input type="text" id="street" size="39" style="width:50%; max-width:250px;">
+                    	
+            <label for="apt">Apt:</label>
+       		<input type="text" id="apt" size="6" style="width:50%; max-width:250px;"><br>
+
+            <label for="zip">Zip Code:</label>
+            <input type="text" id="zip"size="9" style="width:50%; max-width:250px;">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" size="6" style="width:50%; max-width:250px;"><br>
+      
+
+		<label> Message to include with package: </label>
+		</br>
+		<input type = "text" id = 'message' required = '1'>
+
+
+
+
+
+	<!-- TODO: add check for valid email --> 
+	
+
+	<br />
+
+
+	<br />
+
+	<input type = "submit" value = "Place Order!" style="width:180px; height: 50px; font-size: 30px; text-decoration:none; color: #fff; background-color: var(--accent); font-size: 20px; padding: 10px; border-radius: 2px; border: 1px solid #fff; display:block; text-align: center; margin-left: 5px">
+
+</form>
+
+
+<div class="column" style="text-align: center;">
+            	<h2 style = "text-align: center; font-style: italic">Get in touch</h2>
+            	<div><strong>Phone</strong></div>
+            	<a href="tel:123-456-7890">123-456-7890</a><br/>
+
+            	<br>
+            	<div><strong>Email</strong></div>
+            	<a href="mailto:help@saraspackages.com">help@saraspackages.com</a><br/>
+
+			
+            	<br>
+            	<div><strong>Address</strong></div>
+                <div>390 Boston Ave</div>
+                <div>Medford, MA 02155</div>
+                <br>
+                <br>
+                <br>
+
+            </div>
+
+ </span>
+
+<!-- 2nd fixed element-->
+<span class = "footer">
+	<div class = "footer_content"> &copy 2021 </div>
+</span>
+
+
+</body>
+</html>
+
+

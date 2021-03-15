@@ -1,0 +1,84 @@
+<!doctype html>
+<html> 
+<head>
+	<meta charset = "utf-8">
+	<link rel="stylesheet" href="style.css">
+
+
+	<title> Joe's Hotdog Stand </title>
+
+
+
+</head>
+
+<body>
+	<h3> Welcome to </h3>
+	<h1> Joe's Hotdog Stand </h1>
+
+	<div class = "row">
+		<div class = "column"> 
+			<h2> Menu </h2>
+
+			<p> Hotdog: $3.25 </p>
+			<p> French Fries: $2.00 </p>
+			<p> Soda: $1.50 </p>
+		</div>
+
+	<div class = "column"> 
+		<h2> Your Order </h2>
+			<div class = "order"> Hotdogs:  &nbsp;</div><div id = 'num_hotdogs'></div>
+			<div class = "order"> Fries: &nbsp;</div><div id = 'num_fries'></div>
+			<div class = "order"> Sodas: &nbsp;</div><div id = 'num_sodas'></div>
+
+			<p></p>
+
+
+			<p></p>
+			<div class = "order"> Subtotal: &nbsp; $ </div><div id = 'subtotal'></div>
+			<div id = 'discount'></div>
+			<div class = "order"> Tax: &nbsp; $</div><div id = 'tax'></div>
+			<div class = "total"> Total: &nbsp; $</div><div id = 'total'></div>
+		</div>
+	</div>
+
+
+
+	<script language = "javascript">
+		//document.write("Hi, welcome to Joe's Hotdog Stand!")
+
+		var num_hotdogs = prompt ("How many hotdogs would you like to order?", "");
+
+		var num_fries = prompt ("How many orders of French Fries do you want?", "");
+		var num_sodas = prompt ("How many sodas would you like?", "");
+
+
+
+		// tot
+		var subtotal = (num_hotdogs * 3.25) + (num_fries * 2.00) + (num_sodas * 1.5);
+		var discount = (subtotal >= 20.0) ? 0.1 * subtotal : 0.0;
+		var tax = (subtotal - discount) * 0.0625; 
+		var total = (subtotal - discount) + tax;
+
+		document.getElementById("num_hotdogs").innerHTML = num_hotdogs;
+		document.getElementById("num_fries").innerHTML = num_fries;
+		document.getElementById("num_sodas").innerHTML = num_sodas;
+		
+		document.getElementById("subtotal").innerHTML = subtotal.toFixed(2);
+		if (discount != 0.0) {
+			document.getElementById("discount").innerHTML = "You received a 10% discount! You saved $" + discount.toFixed(2) + ".";
+		}
+		
+		
+		document.getElementById("tax").innerHTML = tax.toFixed(2);
+		document.getElementById("total").innerHTML = total.toFixed(2);
+	
+
+
+	
+
+	</script>
+
+</body>
+
+
+</html>

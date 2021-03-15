@@ -1,0 +1,198 @@
+
+
+
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+  @font-face {
+            font-family: primary-font;
+            src: url('Avenir-Fonts/AvenirLTStd-Book.otf'); 
+        }
+
+        :root{
+            --accent: #723c32;
+            --primary: #262626;
+            --secondary: #99695b;
+        }
+
+
+
+/* light green: #8ba077
+  dark green: #536d39
+  terra cotta: #99695b
+  light teal: #96aca7*/ 
+
+        .header {
+            display: block;
+            position: fixed;
+            background-color: #99695b;
+            height: 20%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            overflow: hidden;
+            z-index: 5;
+
+        }
+
+        .title{
+            color: var(--primary);
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 7px;
+            font-size: 52px;
+            font-family: primary-font;
+            font-weight: bold;
+        }
+
+
+        .navigation {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            overflow: visible;
+        }
+
+        li {
+            display: block;
+            margin: 0 auto;
+            float: right;
+            text-align: center;
+            padding-right: 5px;
+        }
+
+        li a {
+            display: inline-block;
+            padding: 0px 18px;
+            text-decoration: none;
+            font-family: primary-font;
+            font-size: 120%;
+            color: #000
+        }
+
+        li a:hover {
+            color: #FFF;
+        }
+
+        li a.active {
+            color: #FFF;
+        }
+
+
+        .home {
+            display: block;
+            margin-top: 20%;
+            margin-right: 10%;
+            margin-left: 10%;
+            margin-bottom: 10%;
+        }
+
+
+
+        h1{
+            color: var(--accent);
+            text-align: center;
+            font-family: primary-font;
+            font-size: 30px;
+            font-style: italic;
+
+        }
+
+        h2{
+            color: #000;
+            text-align: left;
+            font-family: primary-font;
+        }
+
+        p {
+            color: var(--primary);
+            text-align: left;
+            font-family: primary-font;
+        }
+
+
+        .background{
+            background-color: var(--secondary);
+
+        }
+
+
+        .footer {
+            display: block;
+            background-color: #99695b;
+            position: fixed;
+            background-clip: content-box;
+            height: 5%;
+            bottom: 0px;
+            right: 0px;
+            left: 0px;
+
+        }
+
+        .footer_content {
+            margin-top: 1%;
+            text-align: center;
+        }
+
+
+
+        .content {
+            display: block;
+            margin-top: 20%;
+            margin-left: 5%;
+            margin-right: 8%;
+            margin-bottom: 4%;
+            font-family: primary-font;
+
+
+        }
+
+
+        .button{text-decoration:none; color: #fff; background-color: var(--accent); 
+            font-size: 20px; padding: 10px; border-radius: 2px; border: 1px solid #fff; 
+            width: 180px; text-align: center; float: center;}
+
+        .button:hover{color:#fff; background-color:#99695b; border: 1px solid #fff;}
+
+        .row {
+            display: flex;
+            /* flex-wrap: wrap;
+            height: 50%; 
+            width: 75%; */
+        }
+        
+        .column {
+            flex: 50%;
+           /* height: 75%;
+            width: 50%;
+            position: relative;
+            display: block-inline; */
+        }
+
+        .image {
+            height: 100%;
+            width: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+
+        }
+
+        .img_cont {
+            display: block;
+            position: absolute;
+            border: 1px solid green;
+        }

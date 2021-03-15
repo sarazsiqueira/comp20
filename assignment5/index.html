@@ -1,0 +1,203 @@
+<!doctype html>
+<html> 
+<head>
+	<meta charset = "utf-8">
+
+
+	<title> Lottery Sim </title>
+
+</head>
+<style> 
+	h1 {
+		color: #186218;
+    	text-align: center;
+    	padding-top: 0px; 
+    	padding-bottom: 15px;
+    	font-size: 35px;
+    	font-family: Times, serif;
+  		font-weight: bold;
+  		padding-right: 20px;
+
+
+	}
+	h1:hover {
+		color: #228b22;
+	}
+
+	button {
+		font-family: Times, serif;
+		 text-decoration:none; 
+		 color: #fff; 
+		 background-color: #186218; 
+         font-size: 16px; 
+         padding: 5px; 
+         border-radius: 5px; 
+         border: 1px solid #fff; 
+         width: 120px; 
+         text-align: center;  
+	}
+
+	 button:hover{
+	 	color:#fff; background-color:#228b22; border: 1px solid #fff;
+
+	 }
+
+
+	p {
+		font-size: 20px;
+		padding-left: 20px;
+		font-family: Times, serif;
+	}
+
+
+</style>
+
+<body style = "padding-left: 20px;">
+
+	<h1> Mass Lottery: Lucky for Life Game </h1>
+
+
+
+	<br>
+	<!-- have the user enter the winning numbers --> 
+	<button onclick = "displayPrompts()"> Enter your numbers </button>
+
+	<!-- display the inputted numbers --> 
+	<p> Here is your pick: </p>
+	<p id = "yourPick"> </p> 
+
+
+	<!-- print the randomly selected numbers --> 
+	<p> Here are the winning numbers: </p>
+	<p id = "winningNumbers"> </p>
+
+
+	<!-- print how many numbers matched --> 
+	<button onclick = "displayMessage()"> Check matches </button>
+
+	<p> Number of matches: </p>
+	<p id = "matches"> </p> 
+
+	<!-- display whether the lucky ball matched --> 
+	<p id = "luckyBallMatch"></p>
+
+	<p id = "prize"></p>
+	
+
+	<script language = "javascript">
+
+		var lucky_winning;
+		var winning = [];
+
+		var numbers_random = [];
+
+		// finds and returns a random number within a given range  
+		function getRandomNum (min,max) {
+					
+			min = Math.ceil(min);
+			max = Math.floor(max);
+
+			var number = parseInt(Math.floor(Math.random() * (max - min) + min));
+
+			return number;
+		}
+
+		// get the five random numbers and store them in an array
+		numbers_random = [getRandomNum(1,48), getRandomNum(1,48), getRandomNum(1,48), getRandomNum(1,48), getRandomNum(1,48)];
+
+		// sort the randomly generated numbers 
+		numbers_random = numbers_random.sort(function(a,b){return a - b});
+
+		// get the lucky ball number and store it in a variable
+		var lucky_random = getRandomNum(1,18);
+
+
+
+		// get winning numbers from input
+		function displayPrompts() {
+			winning = prompt("Please enter 5 numbers separated by spaces.", "ex. 1 2 3 4 5");
+			winning = winning.split(" ");
+			lucky_winning = prompt("Please enter the lucky ball number.", " ");
+
+			// display the winning numbers and winning lucky ball number
+			for (i = 0; i < 5; i++) {
+				document.getElementById('winningNumbers').innerHTML += (numbers_random[i] + " ");
+			}
+			document.getElementById('winningNumbers').innerHTML += lucky_random;
+
+			// display the user's pick of numbers and lucky ball number
+			for (i = 0; i < 5; i++) {
+				document.getElementById('yourPick').innerHTML += (winning[i] + " ");
+			}
+			document.getElementById('yourPick').innerHTML += lucky_winning;
+
+		}
+
+
+
+		// determines how many matches there are between the random numbers and user inputted numbers
+		function Match(numbers_random, winning) {
+
+			var matches = 0;
+			for (i = 0; i < numbers_random.length; i++) { 
+
+				for (j = 0; j < winning.length; j++) {
+					if (numbers_random[i] == winning[j]) {
+						matches += 1;
+					}
+				}
+			}
+			document.getElementById("matches").innerHTML = matches;
+			return;
+		}
+
+
+		// determines whether the lucky ball matches 
+		function luckyMatch(lucky_random, lucky_winning) {
+			if (lucky_random == lucky_winning) {
+				document.getElementById('luckyBallMatch').innerHTML = "The lucky ball did match";
+				return true;
+			}
+			document.getElementById('luckyBallMatch').innerHTML = "The lucky ball did not match";
+			return false;
+		}
+
+	// calculate the prizes and display them on the screne 
+	function displayMessage() {
+		var matches = Match(numbers_random, winning);
+		var lucky_match = luckyMatch(lucky_random, lucky_winning);
+		
+		//displays an alert to tell the user if they won
+		if ((matches == 5) && (lucky_match == true)) {
+			alert("You win: $7,000 a WEEK for LIFE");
+		} else if ((matches == 5) && (lucky_match == false)) {
+			alert("You win: $25,000 a YEAR for LIFE");
+		} else if ((matches == 4) && (lucky_match == true)) {
+			alert("You win: $5,000");
+		} else if ((matches == 4) && (lucky_match == false)) {
+			alert("You win: $200");
+		} else if ((matches == 3) && (lucky_match == true)) {
+			alert("You win: $150");
+		} else if ((matches == 3) && (lucky_match == false)) {
+			alert("You win: $20");
+		} else if ((matches == 2) && (lucky_match == true)) {
+			alert("You win: $25");
+		} else if ((matches == 2) && (lucky_match == false)) {
+			alert("You win: $3");
+		} else if ((matches == 1) && (lucky_match == true)) {
+			alert("You win: $6");
+		} else if ((matches == 0) && (lucky_match == true)) {
+			alert("You win: $25,000 a YEAR for LIFE");
+		} else {
+			alert("You did not guess the winning numbers.");
+		}
+
+	}
+
+		
+	</script>
+
+</body>
+
+
+</html>
