@@ -1,0 +1,90 @@
+
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+  :root{
+    --accent: #DA4F18;
+  }
+
+
+  h1 {
+    color: var(--accent);
+    text-align: center;
+    padding-top: 0px; 
+    padding-bottom: 15px;
+    font-size: 52px;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight: bold;
+
+  }
+
+  h2 {
+
+    font-family: Verdana, Helvetica, sans-serif;
+  }
+
+
+  h3 {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    line-height: 0px;
+
+  }
+
+  p {
+    padding-left: 20px;
+  }
+
+  #discount {
+      padding-left: 25px;
+      font-style: italic;
+  }
+
+
+  .row{
+    display: flex;
+  }
+
+
+  .column {
+    flex: 50%;
+    padding-left: 20px;
+  }
+
+
+  .order {
+      display: inline;
+      float: left;
+      padding-left: 25px;
+
+    }
+
+  .total {
+      display: inline;
+      float: left;
+      padding-left: 25px;
+      font-size: 20px;
+      color: var(--accent);
+  }
+
+  #total {
+      display: inline;
+      float: left;
+      font-size: 20px;
+      color: var(--accent);
+  }
+
+

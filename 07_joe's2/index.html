@@ -1,0 +1,136 @@
+<!doctype html>
+<html> 
+<head>
+	<meta charset = "utf-8">
+	<link rel="stylesheet" href="style.css">
+
+	<title> Joe's Hotdog Stand </title>
+
+</head>
+
+<body>
+	<h3> Welcome to </h3>
+	<h1> Joe's Hotdog Stand </h1>
+
+	<form name = "menu">
+	<div class = "row">
+		<div class = "order"> Hotdogs ($3.25 each): &nbsp;</div><div id = 'num_hotdogs'>
+			<select name = "hotdogs" id = "hotdogs">
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+				<option value = "7">7</option>
+				<option value = "8">8</option>
+				<option value = "9">9</option>
+				<option value = "10">10</option>
+			</select>
+		</div>
+		<div class = "column">
+			<div class = "order"> Subtotal: &nbsp; $ </div><div id = 'subtotal'></div>
+			<div id = 'discount'></div>
+		</div>
+	</div>
+
+	<div class = "row"> 
+		<div class = "order"> Fries ($2.00 each): &nbsp;</div><div id = 'num_fries'>
+				<select name = "fries" id = "fries"> 
+					<option value = "1">1</option>
+					<option value = "2">2</option>
+					<option value = "3">3</option>
+					<option value = "4">4</option>
+					<option value = "5">5</option>
+					<option value = "6">6</option>
+					<option value = "7">7</option>
+					<option value = "8">8</option>
+					<option value = "9">9</option>
+					<option value = "10">10</option>
+				</select>
+
+			</div>
+			<div class = "column">
+			<div class = "order"> Tax: &nbsp; $</div><div id = 'tax'></div>
+		</div>
+	</div>
+
+	<div class = "row"> 
+		<div class = "order"> Sodas ($1.50 each): &nbsp;</div><div id = 'num_sodas'>
+				<select name = "fries" id = "fries"> 
+					<option value = "1">1</option>
+					<option value = "2">2</option>
+					<option value = "3">3</option>
+					<option value = "4">4</option>
+					<option value = "5">5</option>
+					<option value = "6">6</option>
+					<option value = "7">7</option>
+					<option value = "8">8</option>
+					<option value = "9">9</option>
+					<option value = "10">10</option>
+				</select>
+
+			</div>
+			<div class = "column">
+			<div class = "total"> Total: &nbsp; $</div><div id = 'total'></div>
+		</div>
+	</div>
+	<input type="button" value="Place Order" onclick="calculateCosts()"><br>
+</form>
+
+			<p></p>
+			<p></p>
+			
+		
+	</div>
+
+
+
+	<script language = "javascript">
+
+
+		// prompt customers to order 
+		
+
+		// calculate costs
+		function calculateCosts() {
+			var num_hotdogs = document.getElementsById("num_hotdogs").value;
+			var num_fries = document.getElementsById("fries").value;
+			var num_sodas = document.getElementsById("sodas").value;
+			if (document.forms["menu"]['hotdogs'].value == "" && document.forms['menu']['fries'].value == "" && document.forms['menu']['sodas'].value == "")
+			{
+        				alert('ERROR! You did not order any items')
+        	}
+
+			var subtotal = (num_hotdogs * 3.25) + (num_fries * 2.00) + (num_sodas * 1.5);
+			var discount = (subtotal >= 20.0) ? 0.1 * subtotal : 0.0;
+			var tax = (subtotal - discount) * 0.0625; 
+			var total = (subtotal - discount) + tax;
+
+			if (discount != 0.0) {
+				document.getElementById("discount").innerHTML = "You received a 10% discount! You saved $" + discount.toFixed(2) + ".";
+			}
+
+			document.getElementById("tax").innerHTML = tax.toFixed(2);
+			document.getElementById("total").innerHTML = total.toFixed(2);
+
+		}
+		
+		// display what the customer ordered and the costs
+		alert("Your order: " + num_hotdogs + " hotdogs, " + num_fries = " fries, and " + num_sodas + " sodas.");
+
+			//document.getElementById("num_hotdogs").innerHTML = num_hotdogs;
+		//document.getElementById("num_fries").innerHTML = num_fries;
+		//document.getElementById("num_sodas").innerHTML = num_sodas;
+		//document.getElementById("subtotal").innerHTML = subtotal.toFixed(2);
+
+		// only display the discount amount if the customer spends more than $20
+		
+	
+
+	</script>
+
+</body>
+
+
+</html>
