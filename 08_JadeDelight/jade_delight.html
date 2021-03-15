@@ -1,0 +1,138 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+</head>
+
+<body onload = "hideAddress()">
+
+<script language="javascript">
+
+
+
+function MenuItem(name, cost)
+{
+	this.name = name;
+	this.cost=cost;
+}
+
+menuItems = new Array(
+	new MenuItem("Chicken Chop Suey", 4.5),
+	new MenuItem("Sweet and Sour Pork", 6.25),
+	new MenuItem("Shrimp Lo Mein", 5.25),
+	new MenuItem("Moo Shi Chicken", 6.5),
+	new MenuItem("Fried Rice", 2.35)
+);
+
+
+function makeSelect(name, minRange, maxRange)
+{
+	var t= "";
+	t = "<select name='" + name + "' size='1'>";
+	for (j=minRange; j<=maxRange; j++)
+	   t += "<option>" + j + "</option>";
+	t+= "</select>"; 
+	return t;
+}
+
+// hide the address by default when the page loads
+function hideAddress(x) {
+	document.getElementById("street").style.visibility="hidden";
+    document.getElementById("city").style.visibility="hidden";
+}
+
+// if the user inputs delivery, show the address, but otherwise keep it hidden 
+function showAddress(x) {
+	if (x == 0) {
+		document.getElementById("street").style.visibility="hidden";
+        document.getElementById("city").style.visibility="hidden";
+	}
+	if (x == 1) {
+		document.getElementById("street").style.visibility="visible";
+        document.getElementById("city").style.visibility="visible";
+	}
+
+}
+
+
+// FUNCTION
+// make a function that based on the value of makeSelect, the returns the 
+// value of the total cost 
+</script>
+
+<h1>Jade Delight</h1>
+
+<!-- form for personal info  --> 
+<form>
+
+<p>First Name: <input type="text"  name='fname' /></p>
+<p>Last Name*:  <input type="text"  name='lname' /></p>
+<p>Phone*: <input type="text"  name='phone' /></p>
+
+
+<p> 
+	<input type="radio" onclick= "showAddress(0)" name="p_or_d" value = "pickup" checked="checked"/>Pickup  
+	<input type="radio" onclick= "showAddress(1)" name='p_or_d' value = 'delivery'/>
+	Delivery
+</p>
+
+
+
+<p id = "street">Street: <input type="text"  name='street' /></p>
+<p id = "city"> City: <input type="text"  name='city' /></p>
+
+
+<!-- input order --> 
+<table border="0" cellpadding="3">
+  <tr>
+    <th>Select Item</th>
+    <th>Item Name</th>
+    <th>Cost Each</th>
+    <th>Total Cost</th>
+  </tr>
+
+<script language="javascript">
+
+  var s = "";
+  for (i=0; i< menuItems.length; i++)
+  {
+	  s += "<tr><td>";
+	  s += makeSelect("quan" + i, 0, 10);
+	  s += "</td><td>" + menuItems[i].name + "</td>";
+	  s += "<td> $ " + menuItems[i].cost.toFixed(2) + "</td>";
+	  s += "<td>$<input type='text' name='cost'/></td></tr>"; // this shouldn't be an input, but should be filled 
+  }
+  document.writeln(s);
+
+
+  /* 
+  var subtotal
+  for (i = 0; i < menuItems.length; i++) {
+	 subtotal += cost;
+  }
+
+  */  
+  // document.getElementById("subtotal") = subtotal
+  // document.getElementById("tax") = subtotal * 0.0625
+  // document.getElementById("total") = subtotal + (subtotal * 0.0625)
+
+
+</script>
+
+</table>
+<p>Subtotal: 
+   $<input type="text"  name='subtotal' id="subtotal" /> 
+</p>
+<p>Mass tax 6.25%:
+  $ <input type="text"  name='tax' id="tax" />
+</p>
+<p>Total: $ <input type="text"  name='total' id="total" />
+</p>
+
+<input type = "button" value = "Submit Order" />
+
+</form>
+</body>
+</html>
