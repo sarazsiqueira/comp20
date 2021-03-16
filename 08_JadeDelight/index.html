@@ -8,7 +8,7 @@
 	
 </head>
 
-<body onload = "hideAddress()">
+<body onload = "setUp()">
 
 <script language="javascript">
 
@@ -39,6 +39,13 @@ function makeSelect(name, minRange, maxRange)
 	return t;
 }
 
+function setUp() {
+	hideAddress();
+	for (i=0; i< menuItems.length; i++) {
+		$("[name ='quan" + i + "']").change(calcTotalCost);
+	}
+}
+
 // hide the address by default when the page loads
 function hideAddress() {
 	document.getElementById("street").style.visibility="hidden";
@@ -49,27 +56,43 @@ function hideAddress() {
 function showAddress(x) {
 	if (x == 0) {
 		document.getElementById("street").style.visibility="hidden";
-        	document.getElementById("city").style.visibility="hidden";
-		//return false;
+        document.getElementById("city").style.visibility="hidden";
 	}
 	if (x == 1) {
 		document.getElementById("street").style.visibility="visible";
-        	document.getElementById("city").style.visibility="visible";
-		//document.getElementById("street").required;
-		//document.getElementById("city").required;
-		//return true;
+        document.getElementById("city").style.visibility="visible";
 	}
 
 }
 
+function calcTotalCost(){
+	var sum = 20;
+
+	for (i=0; i< menuItems.length; i++) {
+		$("[name='cost" + i + "']").val() = ($("[name='quan" + i + "']").val() * menuItems[i].cost.toFixed(2));
+		sum += $("[name='cost" + i + "']").val();
+
+	}
+	$('input[name=subtotal]').val(sum).toFixed(2);
+	$('input[name=tax]').val(sum * 0.0625).toFixed(2);
+	$('input[name=total]').val(sum * 1.0625).toFixed(2);
+
+}
 
 // FUNCTION
 // make a function that based on the value of makeSelect, the returns the 
 // value of the total cost
 
 	
-function deliveryMethod() {
-	console.log($('[name ="p_or_d"]'));
+function delivery() {
+	// if pickup is selected, then return false
+	if ($('[name ="p_or_d"]')[0].checked == true) {
+		return false;
+
+	} else {
+		return true;
+
+	}
 }
 	
 	
@@ -78,26 +101,52 @@ function deliveryMethod() {
 function validateForm() {
 	var last = document.forms["info"]["lname"].value;
 	var phone = document.forms["info"]["phone"].value;
-	var valid = true;
+	var street = document.forms["info"]["street"].value;
+	var city = document.forms["info"]["city"].value;
+
 	
 	// if the last name box is left blank, 
 	if (last == "") {
 		alert("Please enter your last name.");
-		valid = false;				   
+		return false;				   
 	}
 	var phoneNumber = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-	if (phone != "" || phone.match(phoneNumber)){
-		valid = true;
-	} else {
+	if (phone == "" || !phone.match(phoneNumber)){
 		alert("Please enter a valid phone number in the form of XXX XXX XXXX");
-		valid = false;
-	}
+		return false;
+	} 
 	
-					   
-        deliveryMethod();
-	// if order is pick up --> time = 15 min 
-	// if order is delivery --> time = 30 min 
-		// if street or city blank --> valid == false
+	// determine time depending on whether the user chooses delivery or pickup				   
+    if (delivery() == false) {
+    	var time = 15;
+    	var deliveryMethod = "Pickup";
+    	//alert("the food will be ready in 15 mintues");
+
+    } else {
+    	var time = 30;
+    	//alert("the food will take 30 min to arrive");
+    	var deliveryMethod = "Delivery";
+
+    	// the street and city are required for delivery service
+    	if (street == "") {
+    		alert("Please enter a street name");
+    		return false;
+
+    	} if(city == "") {
+    		alert("Please enter a city name");
+    		return false;
+    	} 
+    }
+
+    // if all of the quantities remain at 0, display an error
+
+  	if (document.getElementById("subtotal").value == 0) {
+   		alert("Please select at least one item to order.");
+   		return false;
+   }
+
+
+
 	
 	// at least one item must be ordered
 	// if all of the selections are 0 
@@ -106,7 +155,7 @@ function validateForm() {
 	
 	
 	//if no validation issues (if boolean var valid == true)--> display message with order 
-	
+	return true;	
 }
 </script>
 
