@@ -64,6 +64,12 @@ function showAddress(x) {
 // FUNCTION
 // make a function that based on the value of makeSelect, the returns the 
 // value of the total cost
+
+	
+function deliveryMethod() {
+	console.log($('[name ="p_or_d"]'));
+}
+	
 	
 	
 // VALIDATE FORM 
@@ -86,9 +92,7 @@ function validateForm() {
 	}
 	
 					   
-function deliveryMethod() {
-	console.log($('[name ="p_or_d"]'));
-}
+        deliveryMethod();
 	// if order is pick up --> time = 15 min 
 	// if order is delivery --> time = 30 min 
 		// if street or city blank --> valid == false
