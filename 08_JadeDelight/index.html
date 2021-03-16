@@ -48,14 +48,14 @@ function showAddress(x) {
 	if (x == 0) {
 		document.getElementById("street").style.visibility="hidden";
         	document.getElementById("city").style.visibility="hidden";
-		return false;
+		//return false;
 	}
 	if (x == 1) {
 		document.getElementById("street").style.visibility="visible";
         	document.getElementById("city").style.visibility="visible";
 		document.getElementById("street").required;
 		document.getElementById("city").required;
-		return true;
+		//return true;
 	}
 
 }
@@ -93,6 +93,7 @@ function validateForm() {
 		// if street or city blank --> valid == false
 	
 	// at least one item must be ordered
+	// if all of the selections are 0 
 		// otherwise valid == false;
 	
 	
