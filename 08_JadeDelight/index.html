@@ -48,12 +48,14 @@ function showAddress(x) {
 	if (x == 0) {
 		document.getElementById("street").style.visibility="hidden";
         	document.getElementById("city").style.visibility="hidden";
+		return false;
 	}
 	if (x == 1) {
 		document.getElementById("street").style.visibility="visible";
         	document.getElementById("city").style.visibility="visible";
 		document.getElementById("street").required;
 		document.getElementById("city").required;
+		return true;
 	}
 
 }
@@ -66,14 +68,25 @@ function showAddress(x) {
 	
 // VALIDATE FORM 
 function validateForm() {
-	//last name entered
-		// otherwise error alert 
-		// valid == false
+	var last = document.forms["info"]["lname"].value;
+	var phone = document.forms["info"]["phone"].value;
+	var valid = true;
 	
-	// phone number entered and valid phone number 
-		// otherwise alert that there is an error
-		//  valid == false
-		
+	// if the last name box is left blank, 
+	if (last == "") {
+		alert("Please enter your last name.");
+		valid = false;				   
+	}
+	var phoneNumber = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+	if (phone != "" || phone.match(phoneNumber)){
+		valid = true;
+	} else {
+		alert("Please enter a valid phone number in the form of XXX XXX XXXX");
+		valid = false;
+	}
+	
+	if (
+					   
 	
 	// if order is pick up --> time = 15 min 
 	// if order is delivery --> time = 30 min 
@@ -92,7 +105,7 @@ function validateForm() {
 <h1>Jade Delight</h1>
 
 <!-- form for personal info  --> 
-<form>
+<form name = "info">
 
 <p>First Name: <input type="text"  name='fname' /></p>
 <p>Last Name*:  <input type="text"  name='lname' /></p>
