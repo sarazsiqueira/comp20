@@ -1,0 +1,74 @@
+[
+	{
+	"name": "Layla",
+	"artist": "Eric Clapton",
+	"genre": ["Rock"], // can have multiple genres
+	"year": 1970,
+	
+},
+	
+{
+	"name": "Fast Car",
+	"artist": "Tracy Chapman",
+	"genre": ["Singer-songwriter"], // can have multiple genres
+	"year": 1998,
+	
+},
+{
+	"name": "You Don't Know",
+	"artist": "Leon Bridges",
+	"genre": ["R&B","Soul"], // can have multiple genres
+	"year": 2018,
+	
+},
+{
+	"name": "Sedona",
+	"artist": "Houndmouth",
+	"genre": ["Alternative"], // can have multiple genres
+	"year": 2015,
+	
+},
+{
+	"name": "Talk it Up",
+	"artist": "Sammy Rae & the Friends ",
+	"genre": ["Alternative"], // can have multiple genres
+	"year": 2018,
+	
+},
+{
+	"name": "Harriet",
+	"artist": "Hey Rosetta!",
+	"genre": ["Folk"], // can have multiple genres
+	"year": 2014,
+	
+},
+{
+	"name": "Whoa",
+	"artist": "Snoh Alegra",
+	"genre": ["R&B", "Soul"], // can have multiple genres
+	"year": 2019,
+	
+},
+{
+	"name": "You Make My Dreams (Come True)",
+	"artist": "Daryl Hall & John Oates",
+	"genre": ["Rock"], // can have multiple genres
+	"year": 1980,
+	
+},
+{
+	"name": "Better Than",
+	"artist": "Lake Street Dive",
+	"genre": ["Pop"], // can have multiple genres
+	"year": 2014,
+	
+},
+{
+	"name": "Could You Be Loved",
+	"artist": "Bob Marley & The Wailers",
+	"genre": ["Reggae"], // can have multiple genres
+	"year": 1980,
+	
+},
+
+]
