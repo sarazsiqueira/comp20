@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON song list</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
+
+<style type = "text/css">
+
+
+    td {
+      padding-right: 30px;
+      padding-bottom: 5px;
+    }
+
+    th {
+      padding-right: 40px;
+      padding-bottom: 5px;
+    }
+
+  p {
+    padding-top: 30px;
+  }
+
+  </style>
+
+
+<script language="javascript">
+    
+    // create session storage
+    myStorage = window.sessionStorage;
+
+    // print the table of songs 
+    function printTable(str) 
+    {
+    	var songs = JSON.parse(str);
+        var copy = "";
+        songs.forEach(function(song) {
+			copy += "<tr><td>" + (song.name + "   ")
+				 + "</td><td>" + song.artist + "\n"
+				 + "</td><td>" + song.genre 
+				 + "</td><td>" + song.year 
+				 + "</td></tr>";
+		})                     
+        document.getElementById("table").innerHTML = ("<table><tr><th>Song name</th><th>" + "\n" + "Artist name</th><th>Genre</th><th>Year</th></tr>" + copy + "</table>");           
+    }
+           
+
+    // check if genre chosen matches genre of current song
+     function genreMatches(genre_arr, genre) {
+        for (var i = 0; i < genre_arr.length; i++) {
+          if (genre_arr[i] == genre) {
+            return true;
+          }
+        }
+        return false;
+    }
+
+  // printing the filtered songs
+  function filterByGenre() {
+
+	 // get the json data from session storage
+	 let songs = sessionStorage.getItem('json');
+
+   // get the genre the user chooses from the selector 
+    var chosen_genre = document.getElementById("genreSelected").value;
+
+        var results = "";
+        obj = JSON.parse(songs);
+
+        // if the genre of a song matchest the chosen genre, add it to the results string
+        obj.forEach(function(elem){
+            if (genreMatches(elem.genre, chosen_genre)) {
+              results += elem.name + "<br>";
+            }
+        });
+        // display the song results
+        document.getElementById("results").innerHTML = results;                  
+    }
+  
+
+
+  window.onload = function() {
+  	$.get("https://sarazsiqueira.github.io/comp20/09_JSON/songs.json", function(data){
+  		var str = JSON.stringify(data);
+	  	document.getElementById("raw").innerHTML = str + "<br><br><br>";
+
+	  	// print initial table of all songs
+	  	printTable(str);
+
+	  	// write json obj to session storage
+	  	myStorage.setItem('json', str);
+
+  	})
+
+  }
+
+
+
+  </script> 
+</head> 
+<body>
+    <div id="raw"></div>
+    <div id="table"></div>
+
+
+    <form> 
+      <p style = "font-weight: bold"> Select a genre to sort by: </p>
+      <select name = "genreSelected" id = "genreSelected">
+        <option value = "Rock"> Rock </option>
+        <option value = "Singer-songwriter"> Singer-songwriter </option>
+        <option value = "R&B"> R&B </option>
+        <option value = "Soul"> Soul </option>
+        <option value = "Folk"> Folk </option>
+        <option value = "Alternative"> Alternative </option>
+        <option value = "Pop"> Pop </option>
+         <option value = "Reggae"> Reggae </option>
+      </select>
+      <input type = "button" value = "Filter" onclick="filterByGenre()">
+      <br>
+      <p id = "results"></p>
+    </form>
+
+</body>
+</html>
