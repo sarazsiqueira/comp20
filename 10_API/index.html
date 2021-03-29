@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Pollution API</title>
+    <meta charset="utf-8"/>
+    <style> 
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #3266a8;
+            padding-top: 20px;
+        }
+
+        .responses {
+            background-color: #b4cded;
+            margin: 10px 10px 10px 10px;
+            padding: 15px 15px 15px 15px;  
+            border-radius: 5px;
+
+        }
+
+        #info {
+            font-weight: bold;
+            padding-left: 10px;
+            font-size: 20px;
+
+        }
+
+
+
+
+    </style>
+    <script>
+        function getInfo() {
+            alert("ingetInfo");
+            request = new XMLHttpRequest();
+            console.log("1 - request object created");
+
+
+            request.open("GET", "http://api.openweathermap.org/data/2.5/air_pollution?lat=42.4184&lon=71.106&appid=9eb8bd1cc3e0712eec15fc85f42632dd", true);
+            console.log("2 - opened request file");
+ 
+            request.onreadystatechange = function() {
+                 
+                if (request.readyState == 4 && request.status == 200) {
+
+    
+                    console.log("5 - response received");
+                    result = request.responseText;
+                
+                    var pollution = JSON.parse(result);
+                    var aqi = pollution["list"][0]["main"]["aqi"];
+                    var description = "";
+                
+                    if (aqi == 1) {
+                        description = "Good";
+                    } else if (aqi == 2) {
+                        description = "Fair";
+                    } else if (aqi == 3) {
+                        description = "Moderate";
+                    } else if (aqi == 4) {
+                        description = "Poor";
+                    } else {
+                        description = "Very Poor";
+                    }
+
+                    document.getElementById("info").innerHTML = "Current AQI: " + aqi + " (" + description + ")"; 
+                   
+        
+                }
+                else if (request.readyState == 4 && request.status != 200) {
+
+                    document.getElementById("info").innerHTML = "Error";
+
+                }
+
+                else if (request.readyState == 3) {
+
+                    document.getElementById("info").innerHTML = "Too soon!  Try again";
+
+                }
+
+            }
+
+            request.send();
+            console.log("4 - Request sent");
+        }
+    </script>
+</head>
+
+
+<body onload = "getInfo()">
+
+    <h1>Pollution in Medford, MA</h1>
+    <div id = "info"> </div>
+
+    <div class = "responses">
+        <p> The API I selected indicates the current Air Quality Index for a given location, based on longitude and latitude values. </p>
+        <p> I found this API at https://openweathermap.org/api/air-pollution. </p>
+        <p> For the API request, I got the AQI value and then based on that value, used if statements to indicate the corresponding description of the air (ex. Good, Fair, Poor, etc).</p>
+        <p> This would be helpful for a website that alerts people of a certain location when the air quality index is unhealthy. As a California resident, during fire season this past fall, I spent lots of time tracking the AQI to see when the air was healthy enough for me to spend time outside. Another application could be to track pollution in a certain location over time to see how climate change is impacting the quality of air, and therefore the health of residents. </p>
+    </div>
+
+
+</body>
+</html>
